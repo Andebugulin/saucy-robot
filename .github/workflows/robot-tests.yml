@@ -26,7 +26,8 @@ jobs:
 
       - name: Prepare build directory
         run: |
-          mkdir -p ./build
+          mkdir -p ./build/docs
+          cp -r ./docs/* ./build/docs/
           cp -r ./* ./build/ 2>/dev/null || true
           rm -rf ./build/build  # Prevent nested directories
 
@@ -38,7 +39,7 @@ jobs:
 
       - name: Run Robot tests
         run: |
-          export URL=http://localhost:8000
+          export URL=http://localhost:8000/docs/
           robot tests/ || exit 1
 
       - name: Stop local server
@@ -53,7 +54,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push' && success()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./build/docs
           keep_files: false
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'

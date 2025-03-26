@@ -6,7 +6,7 @@ Resource          ./resources/pages/home_page.robot
 Resource          ./resources/pages/cart_page.robot
 
 *** Variables ***
-${URL}  http://localhost:8000
+${URL}  http://localhost:8000/docs/
 ${BROWSER}   headlessfirefox
 
 *** Keywords ***
