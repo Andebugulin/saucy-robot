@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   test-and-deploy:
     runs-on: ubuntu-latest
@@ -54,7 +59,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push' && success()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/docs
+          publish_dir: ./docs
           keep_files: false
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
