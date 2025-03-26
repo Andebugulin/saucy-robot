@@ -6,8 +6,8 @@ Resource          ./resources/pages/home_page.robot
 Resource          ./resources/pages/cart_page.robot
 
 *** Variables ***
-${URL}  file:///home/andrei/vscoding/testing/class_swag_lab/docs/swag_labs.html
-${BROWSER}   firefox
+${URL}  https://andebugulin.github.io/saucy-robot/
+${BROWSER}   headlessfirefox
 
 *** Keywords ***
 open browsers
