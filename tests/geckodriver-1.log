@@ -1,0 +1,19 @@
+1742982186167	geckodriver	INFO	Listening on 127.0.0.1:42107
+1742982186199	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... te" "--remote-debugging-port" "37481" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileTGVwg3"
+Error: Failed to open Wayland display, fallback to X11. WAYLAND_DISPLAY='wayland-1' DISPLAY=':0'
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+[GFX1-]: glxtest: Could not connect to wayland display, WAYLAND_DISPLAY=(null)
+1742982186550	Marionette	INFO	Marionette enabled
+1742982186637	Marionette	INFO	Listening on port 44221
+WebDriver BiDi listening on ws://127.0.0.1:37481
+Read port: 44221
+1742982186801	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+DevTools listening on ws://127.0.0.1:37481/devtools/browser/2f93e65d-1795-4433-89bb-3e7fdf5ae6dc
+1742982193470	Marionette	WARN	TimedPromise timed out after 5000 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:205:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:189:10
+GeckoDriver.prototype.maximizeWindow@chrome://remote/content/marionette/driver.sys.mjs:2977:11
+1742982205641	Marionette	INFO	Stopped listening on port 44221
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt

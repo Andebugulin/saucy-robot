@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on linux)" generated="2025-03-26T11:43:05.995159" rpa="false" schemaversion="5">
+<suite id="s1" name="Main" source="/home/andrei/vscoding/testing/class_swag_lab/tests/main.robot">
+<test id="s1-t1" name="Test Case User Journey" line="19">
+<kw name="open browsers">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:06.115593" level="INFO">Opening browser 'firefox' to base url 'file:///home/andrei/vscoding/testing/class_swag_lab/swag_labs.html'.</msg>
+<msg time="2025-03-26T11:43:06.164740" level="WARN">The geckodriver version (0.35.0) detected in PATH at /sbin/geckodriver might not be compatible with the detected firefox version (136.0.3); currently, geckodriver 0.36.0 is recommended for firefox 136.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-26T11:43:06.115366" elapsed="2.163605"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-03-26T11:43:08.279193" elapsed="0.000212"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-26T11:43:08.279511" elapsed="5.293027"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:06.114507" elapsed="7.458224"/>
+</kw>
+<kw name="Verify Login Page Loaded" owner="login_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:13.573530" elapsed="0.222802"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:14.009085" level="INFO">Element 'id=username' is displayed.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:13.796657" elapsed="0.212582"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:14.220629" level="INFO">Element 'id=password' is displayed.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:14.009487" elapsed="0.211307"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:14.431430" level="INFO">Element 'id=login-button' is displayed.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:14.221161" elapsed="0.210426"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:13.573111" elapsed="0.858635"/>
+</kw>
+<kw name="Login With Credentials" owner="login_page">
+<kw name="Input Username" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:14.432774" level="INFO">Typing text 'standard_user' into text field 'id=username'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:14.432621" elapsed="0.348889"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-03-26T11:43:14.432437" elapsed="0.349202"/>
+</kw>
+<kw name="Input Password" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:14.782178" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:14.782027" elapsed="0.316047"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-03-26T11:43:14.781781" elapsed="0.316412"/>
+</kw>
+<kw name="Click Login Button" owner="login_page">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:15.098699" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:15.098553" elapsed="0.412981"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:15.098342" elapsed="0.413434"/>
+</kw>
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2025-03-26T11:43:14.432154" elapsed="1.079776"/>
+</kw>
+<kw name="Verify Home Page Loading" owner="home_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOME_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:15.512584" elapsed="1.125327"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:16.848293" level="INFO">Element 'xpath=//*[@id="products-grid"]/div[1]' is displayed.</msg>
+<arg>${HOME_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:16.638210" elapsed="0.210300"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:15.512359" elapsed="1.336355"/>
+</kw>
+<kw name="Buy N Product" owner="home_page">
+<kw name="Verify Home Page Loading" owner="home_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOME_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:16.849491" elapsed="0.210427"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:17.270048" level="INFO">Element 'xpath=//*[@id="products-grid"]/div[1]' is displayed.</msg>
+<arg>${HOME_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:17.060102" elapsed="0.210186"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:16.849303" elapsed="0.421190"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:17.375114" level="INFO">${product} = &lt;selenium.webdriver.remote.webelement.WebElement (session="3c828e37-fba0-44b9-af8c-f0168b0e7d32", element="eba76e93-0ac9-4d54-83e1-03eab704443d")&gt;</msg>
+<var>${product}</var>
+<arg>${PRODUCTS_LIST}/div[${PRODUCT_ID}]/button</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:17.270760" elapsed="0.104463"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:17.376059" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="3c828e37-fba0-44b9-af8c-f0168b0e7d32", element="eba76e93-0ac9-4d54-83e1-03eab704443d")&gt;'.</msg>
+<arg>${product}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:17.375604" elapsed="0.309185"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2025-03-26T11:43:16.849050" elapsed="0.835902"/>
+</kw>
+<kw name="Buy N Product" owner="home_page">
+<kw name="Verify Home Page Loading" owner="home_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOME_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:17.685766" elapsed="0.210747"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:18.107706" level="INFO">Element 'xpath=//*[@id="products-grid"]/div[1]' is displayed.</msg>
+<arg>${HOME_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:17.896792" elapsed="0.211115"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:17.685557" elapsed="0.422503"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:18.211575" level="INFO">${product} = &lt;selenium.webdriver.remote.webelement.WebElement (session="3c828e37-fba0-44b9-af8c-f0168b0e7d32", element="ffc7b4ca-050c-44fa-bea0-d5fd2ff4449c")&gt;</msg>
+<var>${product}</var>
+<arg>${PRODUCTS_LIST}/div[${PRODUCT_ID}]/button</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:18.108303" elapsed="0.103400"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:18.212074" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="3c828e37-fba0-44b9-af8c-f0168b0e7d32", element="ffc7b4ca-050c-44fa-bea0-d5fd2ff4449c")&gt;'.</msg>
+<arg>${product}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:18.211882" elapsed="0.308419"/>
+</kw>
+<arg>2</arg>
+<status status="PASS" start="2025-03-26T11:43:17.685216" elapsed="0.835282"/>
+</kw>
+<kw name="Go To Cart" owner="home_page">
+<kw name="Verify Home Page Loading" owner="home_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOME_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:18.521565" elapsed="0.212427"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:18.943745" level="INFO">Element 'xpath=//*[@id="products-grid"]/div[1]' is displayed.</msg>
+<arg>${HOME_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:18.734277" elapsed="0.209706"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:18.521267" elapsed="0.422861"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:19.047565" level="INFO">${cart} = &lt;selenium.webdriver.remote.webelement.WebElement (session="3c828e37-fba0-44b9-af8c-f0168b0e7d32", element="85330cee-579a-4dd9-9d16-8d801e5b2bf1")&gt;</msg>
+<var>${cart}</var>
+<arg>${CART}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:18.944324" elapsed="0.103315"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:19.048158" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="3c828e37-fba0-44b9-af8c-f0168b0e7d32", element="85330cee-579a-4dd9-9d16-8d801e5b2bf1")&gt;'.</msg>
+<arg>${cart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:19.047904" elapsed="0.308062"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:18.520857" elapsed="0.835360"/>
+</kw>
+<kw name="Verify Cart Page Loaded" owner="cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CART_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:19.356993" elapsed="0.209392"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:19.776872" level="INFO">Element 'xpath=/html/body/div[3]/h2' is displayed.</msg>
+<arg>${CART_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:19.566745" elapsed="0.210296"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:19.356661" elapsed="0.420528"/>
+</kw>
+<kw name="Remove N Product from Cart" owner="cart_page">
+<kw name="Verify Cart Page Loaded" owner="cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CART_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:19.777933" elapsed="0.210116"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:20.197859" level="INFO">Element 'xpath=/html/body/div[3]/h2' is displayed.</msg>
+<arg>${CART_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:19.988329" elapsed="0.209684"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:19.777770" elapsed="0.420390"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-26T11:43:20.198534" level="INFO">Removing product at index 1</msg>
+<arg>Removing product at index ${PRODUCT_ID}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-26T11:43:20.198378" elapsed="0.000193"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CART_ITEMS} .cart-item:nth-child(${PRODUCT_ID}) button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:20.198652" elapsed="0.209808"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:20.409330" level="INFO">Clicking button 'css=#cart-items .cart-item:nth-child(1) button'.</msg>
+<arg>${CART_ITEMS} .cart-item:nth-child(${PRODUCT_ID}) button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:20.408855" elapsed="0.722098"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2025-03-26T11:43:19.777508" elapsed="1.353684"/>
+</kw>
+<kw name="Fill Information and Complete Purchase" owner="cart_page">
+<kw name="Verify Cart Page Loaded" owner="cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CART_ELEMENT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:21.131884" elapsed="0.209716"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:21.552031" level="INFO">Element 'xpath=/html/body/div[3]/h2' is displayed.</msg>
+<arg>${CART_ELEMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:21.341875" elapsed="0.210330"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:21.131710" elapsed="0.420638"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:21.552898" level="INFO">Typing text 'Andrei' into text field 'id=first-name'.</msg>
+<arg>${FIRST_NAME_FIELD}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:21.552543" elapsed="0.314337"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:21.867502" level="INFO">Typing text 'Surname' into text field 'id=last-name'.</msg>
+<arg>${LAST_NAME_FIELD}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:21.867162" elapsed="0.315106"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:22.183114" level="INFO">Typing text '123456' into text field 'id=postal-code'.</msg>
+<arg>${POSTAL_CODE_FIELD}</arg>
+<arg>${postal_code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:22.182599" elapsed="0.314025"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:22.497244" level="INFO">Clicking button 'xpath=/html/body/div[3]/div[2]/button'.</msg>
+<arg>${COMPLETE_PURCHASE_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:22.496929" elapsed="0.720287"/>
+</kw>
+<arg>Andrei</arg>
+<arg>Surname</arg>
+<arg>123456</arg>
+<status status="PASS" start="2025-03-26T11:43:21.131460" elapsed="2.085947"/>
+</kw>
+<kw name="Verify Purchase Completed" owner="cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PURCHASE_COMPLETED}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-26T11:43:23.218172" elapsed="0.209259"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:43:23.637943" level="INFO">${text} = Thank You For Your Order!</msg>
+<var>${text}</var>
+<arg>${PURCHASE_COMPLETED}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:43:23.427648" elapsed="0.210368"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>Thank You For Your Order!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-26T11:43:23.638335" elapsed="0.000259"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:43:23.217755" elapsed="0.420953"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-26T11:43:25.639169" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-26T11:43:23.638907" elapsed="2.000439"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-03-26T11:43:25.639654" elapsed="0.718373"/>
+</kw>
+<doc>Test Case User flow</doc>
+<tag>test</tag>
+<status status="PASS" start="2025-03-26T11:43:06.113962" elapsed="20.244266"/>
+</test>
+<status status="PASS" start="2025-03-26T11:43:05.995815" elapsed="20.362747"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">test</stat>
+</tag>
+<suite>
+<stat name="Main" id="s1" pass="1" fail="0" skip="0">Main</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-03-26T11:43:06.164740" level="WARN">The geckodriver version (0.35.0) detected in PATH at /sbin/geckodriver might not be compatible with the detected firefox version (136.0.3); currently, geckodriver 0.36.0 is recommended for firefox 136.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
