@@ -1,4 +1,4 @@
-name: Robot Tests
+name: Robot Tests and Deploy
 
 on:
   push:
@@ -7,23 +7,50 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-test:
+  test-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          # pip install robotframework robotframework-seleniumlibrary
-          # or, if you have a requirements.txt:
           pip install -r requirements.txt
+          pip install robotframework robotframework-seleniumlibrary
+
+      - name: Build site
+        run: |
+          # Add your build commands here (e.g., Jekyll, Hugo, or custom build script)
+          # This ensures the latest version is built
+          mkdir -p site
+          cp -r * site/
+
+      - name: Start local server
+        run: |
+          python3 -m http.server 8000 --directory site &
+          SERVER_PID=$!
+          echo "SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
+          sleep 2  # Give the server a moment to start
 
       - name: Run Robot tests
-        run: robot tests/
+        run: |
+          export URL=http://localhost:8000
+          robot tests/
+
+      - name: Stop local server
+        if: always()
+        run: |
+          kill ${{ env.SERVER_PID }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: success()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site

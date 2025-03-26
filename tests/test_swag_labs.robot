@@ -6,7 +6,7 @@ Resource          ./resources/pages/home_page.robot
 Resource          ./resources/pages/cart_page.robot
 
 *** Variables ***
-${URL}  https://andebugulin.github.io/saucy-robot/
+${URL}  http://localhost:8000
 ${BROWSER}   headlessfirefox
 
 *** Keywords ***
