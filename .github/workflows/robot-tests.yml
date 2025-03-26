@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
@@ -24,33 +24,37 @@ jobs:
           pip install -r requirements.txt
           pip install robotframework robotframework-seleniumlibrary
 
-      - name: Build site
+      - name: Prepare build directory
         run: |
-          # Add your build commands here (e.g., Jekyll, Hugo, or custom build script)
-          # This ensures the latest version is built
-          mkdir -p site
-          cp -r * site/
+          mkdir -p ./build
+          cp -r ./* ./build/ 2>/dev/null || true
+          rm -rf ./build/build  # Prevent nested directories
 
       - name: Start local server
         run: |
-          python3 -m http.server 8000 --directory site &
-          SERVER_PID=$!
-          echo "SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
+          python3 -m http.server 8000 --directory build &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
           sleep 2  # Give the server a moment to start
 
       - name: Run Robot tests
         run: |
           export URL=http://localhost:8000
-          robot tests/
+          robot tests/ || exit 1
 
       - name: Stop local server
         if: always()
         run: |
-          kill ${{ env.SERVER_PID }}
+          if [ ! -z "$SERVER_PID" ]; then
+            kill $SERVER_PID || true
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: success()
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push' && success()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          publish_dir: ./build
+          keep_files: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: ${{ github.event.head_commit.message }}
